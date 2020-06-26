@@ -1,0 +1,30 @@
+type: object
+description: 'An open port on a container'
+required:
+    - PrivatePort
+    - Type
+properties:
+    IP:
+        type: string
+        format: ip-address
+        description: 'Host IP address that the container''s port is mapped to'
+    PrivatePort:
+        type: integer
+        format: uint16
+        x-nullable: false
+        description: 'Port on the container'
+    PublicPort:
+        type: integer
+        format: uint16
+        description: 'Port exposed on the host'
+    Type:
+        type: string
+        x-nullable: false
+        enum:
+            - tcp
+            - udp
+            - sctp
+example:
+    PrivatePort: 8080
+    PublicPort: 80
+    Type: tcp
